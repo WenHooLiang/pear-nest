@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /myspring
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wallet?serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+mybatis-plus:
+  type-aliases-package: com.sakila.gencode.*.entity
+  mapper-locations: classpath:mapper/**/*.xml
+
+swagger-cawbutler:
+  enable: true
+  title: swagger-test
+#  api-base-package: com.sakila.gencode.*.controller
+  api-base-package: com.sakila.gencode.wuser.controller
